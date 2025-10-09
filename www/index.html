@@ -153,7 +153,7 @@
     var active = false;
     var startTime = 0;
     var period = 0;
-    var rest = 0;　
+    var rest = 0;
     var etime = 0;
 
 
@@ -208,6 +208,7 @@
     // ButtonCがクリックされた時の処理
     function btnCClick(e){
         alarm();
+
         active = false;
         period = 60* parseInt( $("#minute").val() ) + parseInt( $("#second").val() );
         $("#time").html("経過時間： 0");　
@@ -219,10 +220,18 @@
     
  
     // 繰り返し実行する処理
-    function timer(){  
+    function timer(){ 
+        if (active) {
+            etime = parseInt( (new Date() - startTime)/1000 );
+            rest = period - etime;　
+            $("#time").html("経過時間： " + etime);
+            $("#remain").html("残り時間： " + rest);
+            analog(rest);
+ 
         
         
     } 
+    }
 
   </script>
 </head>
