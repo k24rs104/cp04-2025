@@ -172,10 +172,10 @@
         var canvas = $("#mycanvas")[0];
         var ctx = canvas.getContext("2d");
         var img = new Image(); 　
-        img.src = "ksuisbg.gif";
+        img.src = "firework.jpeg";
         img.onload = function() {
-            ctx.drawImage(img, 0, 0, 300, 300);
-            var audio = new Audio();
+        ctx.drawImage(img, 0, 0, 300, 300);
+        var audio = new Audio();
         audio.src = "pin.wav";　
         audio.play();
 
@@ -193,17 +193,19 @@
         active = true;
         startTime = new Date();
 
-        var audio = new audio();
-        audio.src = "pin.wav";
+        var audio = new Audio();
+        audio.src = "firework2.mp3";
         audio.play();
-        
-        
+
     }
 
     // ButtonBがクリックされた時の処理
     function btnBClick(e){
 
         active = false;
+        var audio = new Audio();
+        audio.src = "ketteibutton.mp3";
+        audio.play();
         
         
         
@@ -212,7 +214,6 @@
     // ButtonCがクリックされた時の処理
     function btnCClick(e){
         alarm();
-
         active = false;
         period = 60* parseInt( $("#minute").val() ) + parseInt( $("#second").val() );
         $("#time").html("経過時間： 0");　
